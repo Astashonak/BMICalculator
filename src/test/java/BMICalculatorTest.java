@@ -70,18 +70,30 @@ public class BMICalculatorTest {
                 "не совпадает" );
         driver.quit();
     }
-//    @Test
-//    public void inchesToCentimeters(){
-//        WebDriver driver = new ChromeDriver();
-//        driver.get("https://healthunify.com/bmicalculator/");
-//        WebElement selectBox = driver.findElement(By.name("opt2"));
-//        Select selectOne = new Select(selectBox);
-//        selectOne.selectByValue("2");
-//        WebElement selectNextBox = driver.findElement(By.name("opt3"));
-//        Select selectTwo = new Select(selectNextBox);
-//        selectTwo.selectByValue("4");
-//        String Centimeters = driver.findElement(By.name("ht")).getText();
-//        Assert.assertEquals(Centimeters, "71", "перевод в сантиметры не правильный");
-//        driver.quit();
-//    }
+    @Test
+    public void inchesToCentimeters(){
+        WebDriver driver = new ChromeDriver();
+        driver.get("https://healthunify.com/bmicalculator/");
+        WebElement selectBox = driver.findElement(By.name("opt2"));
+        Select selectOne = new Select(selectBox);
+        selectOne.selectByValue("2");
+        WebElement selectNextBox = driver.findElement(By.name("opt3"));
+        Select selectTwo = new Select(selectNextBox);
+        selectTwo.selectByValue("4");
+        String Centimeters = driver.findElement(By.name("ht")).getAttribute("value");
+        Assert.assertEquals(Centimeters, "71", "перевод в сантиметры не правильный");
+        driver.quit();
+    }
+    @Test
+    public void kilogramsToPounds(){
+        WebDriver driver = new ChromeDriver();
+        driver.get("https://healthunify.com/bmicalculator/");
+        driver.findElement(By.name("wg")).sendKeys("25");
+        WebElement selectBoxWeight = driver.findElement(By.name("opt1"));
+        Select selectPounds = new Select(selectBoxWeight);
+        selectPounds.selectByValue("pounds");
+        String quantityOfPounds = driver.findElement(By.name("wg")).getAttribute("value");
+        Assert.assertEquals(quantityOfPounds, "55", "перевод в фунты не правильный");
+        driver.quit();
+    }
 }

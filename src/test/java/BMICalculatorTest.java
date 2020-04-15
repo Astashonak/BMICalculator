@@ -9,6 +9,7 @@ import org.testng.annotations.Test;
 import java.util.concurrent.TimeUnit;
 
 public class BMICalculatorTest {
+
     @Test
     public void starvationCategory(){
         System.setProperty("webdriver.chrome.driver", "src/test/resources/chromedriver.exe");
@@ -22,6 +23,7 @@ public class BMICalculatorTest {
                 "не совпадает" );
         driver.quit();
     }
+
     @Test
     public void underweightCategory(){
         WebDriver driver = new ChromeDriver();
@@ -34,6 +36,7 @@ public class BMICalculatorTest {
                 "не совпадает" );
         driver.quit();
     }
+
     @Test
     public void normalCategory(){
         WebDriver driver = new ChromeDriver();
@@ -46,6 +49,7 @@ public class BMICalculatorTest {
                 "не совпадает" );
         driver.quit();
     }
+
     @Test
     public void overweightCategory(){
         WebDriver driver = new ChromeDriver();
@@ -58,6 +62,7 @@ public class BMICalculatorTest {
                 "не совпадает" );
         driver.quit();
     }
+
     @Test
     public void obeseCategory(){
         WebDriver driver = new ChromeDriver();
@@ -70,6 +75,7 @@ public class BMICalculatorTest {
                 "не совпадает" );
         driver.quit();
     }
+
     @Test
     public void inchesToCentimeters(){
         WebDriver driver = new ChromeDriver();
@@ -84,6 +90,7 @@ public class BMICalculatorTest {
         Assert.assertEquals(Centimeters, "71", "перевод в сантиметры не правильный");
         driver.quit();
     }
+
     @Test
     public void kilogramsToPounds(){
         WebDriver driver = new ChromeDriver();
@@ -96,4 +103,5 @@ public class BMICalculatorTest {
         Assert.assertEquals(quantityOfPounds, "55", "перевод в фунты не правильный");
         driver.quit();
     }
+
 }
